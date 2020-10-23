@@ -16,6 +16,10 @@
 				.mcenter{
 				font-size: 16px;
 			}
+		p img {
+				width: 1.5vw;
+				height: 1.5vw;
+			}
 			#menu li {
 				float: left;
 				margin: 0 10px 0 0;
@@ -38,6 +42,10 @@
 				width: 22vw;
 				height: 3vh;
 				line-height: 3vh;
+			}
+		p img {
+				width: 2.5vh;
+				height: 2.5vh;
 			}
 			#menu li {
 				float: left;
@@ -92,10 +100,7 @@
 				/*	padding-top: 4vh;*/
 			}
 			
-			p img {
-				width: 1.5vw;
-				height: 1.5vw;
-			}
+			
 			
 			#home .block {
 				cursor: pointer;
