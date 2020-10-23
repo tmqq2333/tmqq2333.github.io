@@ -1,0 +1,170 @@
+	#menu {
+				margin: 0;
+				padding: 0;
+				position: fixed;
+				left: 10px;
+				top: 10px;
+				list-style-type: none;
+				z-index: 70;
+			}
+			
+			#menu li {
+				float: left;
+				margin: 0 10px 0 0;
+				font-size: 14px;
+			}
+			
+			#menu a {
+				float: left;
+				padding: 10px 20px;
+				background-color: #fff;
+				color: #333;
+				text-decoration: none;
+			}
+			
+			#menu .active a {
+				color: #fff;
+				background-color: #333;
+			}
+			
+			.section {
+				text-align: center;
+				font: 14px "Microsoft Yahei";
+				color: #fff;
+				/*	padding-top: 4vh;*/
+			}
+			
+			p img {
+				width: 1.5vw;
+				height: 1.5vw;
+			}
+			
+			#home .block {
+				cursor: pointer;
+				/* 3D变形 */
+				transform-style: preserve-3d;
+				perspective: 1000;
+			}
+			
+			#home .block h3 {
+				height: 100%;
+				transition: 0.8s;
+			}
+			
+			.block:hover h3 {
+				transform: rotateY(180deg);
+			}
+			
+			#home p a {
+				animation: play03 1s infinite;
+			}
+			
+			@keyframes play03 {
+				from {
+					color: darkblue;
+				}
+				to {
+					color: yellow;
+				}
+			}
+			
+			.row {
+				display: flex;
+				flex-wrap: wrap;
+			}
+			
+			.col-2 {
+				width: 44vw;
+				height: 20vh;
+				background-color: darkkhaki;
+				margin-left: 3.5vw;
+				margin-top: 3vw;
+				padding-top: 3vw;
+				border-radius: 20px;
+				background: linear-gradient(-135deg, transparent 2.4vw, #58a 0)right;
+				filter: drop-shadow(0px 0px 15px #bbb);
+			}
+			
+			.col-2 :before {
+				content: '';
+				display: block;
+				position: absolute;
+				right: -1.0vw;
+				top: -1.2vw;
+				width: 4.6vw;
+				height: 4.5vw;
+				background: linear-gradient(42deg, #ddd 30%, rgba(0, 0, 0, 0) 40%);
+			}
+			
+			.col-2 h2 {
+				font-family: "franklin gothic demi";
+				font-weight: bold;
+				text-shadow: 1px 2px #2F2F37, 2px 4px #31708F;
+			}
+			
+			.tag-panel {
+				display: flex;
+				flex-wrap: wrap;
+				flex-direction: row;
+			/*	align-items: auto;*/
+				background-color: darkorange;
+				margin: 4vh 1vw;
+				font-size: 1.2em;
+				
+			}
+			
+			.tag-panel div {
+				width: 13vw;
+				height: 2vw;
+				background-color: gold;
+				text-align:left;
+				line-height: 2vw;
+			}
+			
+			#avatar {
+				width: 10vw;
+				height: 10vw;
+				border-radius: 10vw;
+			}
+			
+			h1 {
+				text-shadow: 1px 2px #22c3aa, 2px 4px #aee2d9;
+				text-align: center;
+				font-size: 3em;
+				font-family: Lato, "Microsoft YaHei", sans-serif;
+			}
+			
+			.boxcenter {
+				padding-top: 8vh;
+			}
+			
+			#education {
+				padding-top: 18vh;
+			}
+			
+			#more {
+				padding-top: 30vh;
+			}
+			.mcenter{
+				padding-top: 2vh;
+				font-size: 16px;
+				font-family: charcoal;
+			}
+			a {
+				text-decoration: none;
+				color: blue;
+				text-decoration: none;
+				transition: 0.5s;
+				
+				
+				}
+				a:hover{
+					color: yellow;
+				}
+				.tag{
+					transition: width  0.5s;
+				}
+				.tag:hover{
+					width: 30vw;
+					
+				}
