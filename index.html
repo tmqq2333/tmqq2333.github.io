@@ -5,6 +5,17 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<style>
+			@media only screen and (min-width:900px ) {
+				.box{font-size: 2vw;
+					}
+				
+				
+			}
+			@media only screen and (max-width:900px ) {
+				.box{font-size: 4vw;
+				    
+					}
+			}
 				body {
 				margin: 0;
 				overflow: hidden;
@@ -15,10 +26,10 @@
 				height: 0;
 				background-color: black;
 				position: absolute;
-				left: 30vw;
+				left: 20vw;
 				top: 20vh;
 				border: solid 0.5px white;
-				resize: horizontal;
+				resize:vertical;
 				/*	用户可调整元素的宽度*/
 				overflow-x: scroll;
 				color: white;
@@ -65,25 +76,7 @@
 				animation: landIn 0.8s ease-out both;
 			}
 			
-			#ico {
-				width: 0.2vw;
-				height: 1vw;
-				background-color: white;
-				position: absolute;
-				left: 8.2vw;
-				top: 14.5%;
-				display: none;
-			}
 			
-			#lico {
-				width: 0.2vw;
-				height: 1vw;
-				background-color: white;
-				/*position: absolute;
-				left: 10.3vw;
-				top: 27.4%;*/
-				display: none;
-			}
 			
 			.float {
 				display: flex;
@@ -127,10 +120,41 @@
 					-webkit-clip-Path: ellipse(100px 100px at 0% 50%);
 					clip-Path: ellipse(100px 100px at 0% 50%);
 				}
-				#myCanvas{
-					width: 100vw;
-					height: 100vh;
-					}
+				}
+			.element {
+				display: inline
+			}
+			.typed-fade-out {
+				opacity: 0;
+				transition: opacity .25s;
+				-webkit-animation: 0;
+				animation: 0;
+			}
+			.typed-cursor {
+				opacity: 1;
+				animation: typedjsBlink 0.7s infinite;
+				-webkit-animation: typedjsBlink 0.7s infinite;
+				animation: typedjsBlink 0.7s infinite;
+			}
+			
+			@keyframes typedjsBlink {
+				50% {
+					opacity: 0.0;
+				}
+			}
+			
+			@-webkit-keyframes typedjsBlink {
+				0% {
+					opacity: 1;
+				}
+				50% {
+					opacity: 0.0;
+				}
+				100% {
+					opacity: 1;
+				}
+			
+			
 		</style>
 	</head>
 
@@ -141,18 +165,16 @@
 		<div class="box">
 			<div class="landIn">Microsoft Windows [版本 10.0.19041.572]</div>
 			<div class="landIn">(c) 2020 Microsoft Corporation. 保留所有权利。</div>
-			<div class="landIn">C:\Users\tmqq2></div><span id="ico"></span>
-			<div class="float">
-				<div class="landIntext">C:\Users\tmqq2> welcome to see 
-C:\Users\tmqq2>简历 </div><span id="lico"></span></div>
-
+			<div class="landIn">C:\Users\tmqq2></div><span id="element"></span>
+		
 		</div>
 		<canvas id="myCanvas"></canvas>
 		<script src="js/jquery-1.11.0.js"></script>
+		<script type="text/javascript" src="https://cdn.bootcss.com/typed.js/2.0.5/typed.js"></script>
 		<script src="js/timerain.js"></script>
 
 		<script type="text/javascript">
-			function uptoshow() {
+		   new	function uptoshow() {
 				$(document).keypress(function(e) {
 					// 回车键事件  
 					if(e.which == 13) {
@@ -160,13 +182,25 @@ C:\Users\tmqq2>简历 </div><span id="lico"></span></div>
 
 					}
 				});
-				
-				setTimeout(function() {
-						toText()
-					},3000)
+				$(".box").click(function(){
+					toText()
+				})
 			}
-
-            
+				setTimeout(function() {
+				var options = {
+				// 闪烁光标必须得有：上面的css和下面字符串内添加 ^1000 ，只要是当输入到^1000就解析闪烁的时间，1000ms。
+				 strings: [ "个人网站建设中，敬请期待！","<i> welcome  ^1000 to see </i> ^1000 <br/> 简历！","请点击enter 或者 轻触本框"],
+				  typeSpeed: 100, //打字速度
+					backSpeed: 50, //回退速度
+					loop: true,
+					loopCount: 1,
+					showCursor: true,
+					cursorChar: "|"
+			}
+			var typed = new Typed("#element", options);
+				}, 6200)
+             
+			
 			function toText() {
 				$(".box").stop(true, true).animate({
 					"top:": "0vh",
@@ -188,87 +222,13 @@ C:\Users\tmqq2>简历 </div><span id="lico"></span></div>
 				}
 				const scroll = new Scroll(set);
 				scroll.show()
-				//			setTimeout(function() {
-				//						$(".totwo").css({
-				//							"display": "block"
-				//						})
-				//					}, 1200)
-				//               $(".totwo").stop(true, true).animate({
-				//					"top:": "0",
-				//					"width": "100vw",
-				//					"height": "100vh"
-				//				}, 3050,'swing')
+		
 				setTimeout(function() {
 					window.location.href = "jianli.html"
 				}, 1200)
 			}
-
-			var set = {
-				text: "123456789abcdgfhjfdhkjetreytryui",
-				fontsize: 15,
-				fontcolor: "green",
-				fontstyle: "华文行楷",
-				time: 50,
-				ifflur: false
-			}
-			const scroll = new Scroll(set);
-			scroll.show()
-			setTimeout(function() {
-				$(".box").stop(true, true).animate({
-					"top:": "20vh",
-					"width": "40vw",
-					"height": "30vw"
-				}, 1050, function() {
-					$(".landIn").css({
-						"display": "block"
-					})
-
-					txt()
-					setTimeout(function() {
-						$("#ico").css({
-							"display": "block"
-						})
-					}, 1500)
-					setInterval(function() {
-						$("#ico").animate({
-							"opacity": "0"
-						}, 800, function() {
-							$("#ico").css({
-								"opacity": "1"
-							})
-						})
-					}, 5)
-
-					setTimeout(function() {
-						$("#ico").css({
-							"display": "none"
-						})
-						$(".landIntext").css({
-							"display": "block"
-						})
-						txt2()
-						setTimeout(function() {
-							$("#lico").css({
-								"display": "block"
-							})
-						}, 3200)
-						setInterval(function() {
-							$("#lico").animate({
-								"opacity": "0"
-							}, 800, function() {
-								$("#lico").css({
-									"opacity": "1"
-								})
-							})
-						}, 5)
-						uptoshow()
-					}, 3500)
-
-				})
-
-			}, 1000)
-
-			function txt() {
+			
+              function txt() {
 
 				let landInTexts = document.querySelectorAll(".landIn");
 				landInTexts.forEach(landInText => {
@@ -283,22 +243,31 @@ C:\Users\tmqq2>简历 </div><span id="lico"></span></div>
 				});
 
 			}
-
-			function txt2() {
-
-				let landInTexts = document.querySelectorAll(".landIntext");
-				landInTexts.forEach(landInText => {
-					let letters = landInText.textContent.split("");
-					landInText.textContent = "";
-					letters.forEach((letter, i) => {
-						let span = document.createElement("span");
-						span.textContent = letter;
-						span.style.animationDelay = `${i * 0.05}s`;
-						landInText.append(span);
-					});
-				});
-
+			var set = {
+				text: "123456789abcdgfhjfdhkjetreytryui",
+				fontsize: 15,
+				fontcolor: "green",
+				fontstyle: "华文行楷",
+				time: 50,
+				ifflur: false
 			}
+			const scroll = new Scroll(set);
+			scroll.show()
+			setTimeout(function() {
+				$(".box").stop(true, true).animate({
+					"top:": "20vh",
+					"width": "60vw",
+					"height": "60vh"
+				}, 1050, function() {
+					$(".landIn").css({
+						"display": "block"
+					})
+
+					txt()
+					})
+				}, 1000)
+					
+			   
 		</script>
 	</body>
 

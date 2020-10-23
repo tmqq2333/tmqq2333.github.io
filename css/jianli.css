@@ -1,3 +1,65 @@
+	@media only screen and (min-width:900px ) {
+		.tag-panel {
+				font-size: 1.8vw;
+				
+			}
+			.section {
+				font: 1vw "Microsoft Yahei";
+			
+			}
+				h1 {
+				
+				text-align: center;
+				font-size: 3em;
+			
+			}
+				.mcenter{
+				font-size: 16px;
+			}
+			#menu li {
+				float: left;
+				margin: 0 10px 0 0;
+				font-size: 1.0vw;
+			}
+				.tag-panel div {
+				width: 13vw;
+				height: 2vw;
+				background-color: gold;
+				text-align:left;
+				line-height: 2vw;
+			}
+	}
+	@media only screen and (max-width:900px ) {
+				.tag-panel {
+				font-size: 2.3vh;
+				
+			}
+			.tag-panel div {
+				width: 16vh;
+				height: 6vh;
+				line-height: 6vh;
+			}
+			#menu li {
+				float: left;
+				width: 8vh;
+				margin: 0 1px 0 0;
+				font-size: 0.6vh;
+			}
+				.section {
+				font: 2.1vh "Microsoft Yahei";
+			
+			}
+				h1 {
+				
+				text-align: center;
+				font-size: 4.6vh;
+			
+			}
+				.mcenter{
+				font-size: 2.6vh;
+			}
+	}
+	
 	#menu {
 				margin: 0;
 				padding: 0;
@@ -8,11 +70,7 @@
 				z-index: 70;
 			}
 			
-			#menu li {
-				float: left;
-				margin: 0 10px 0 0;
-				font-size: 1vw;
-			}
+			
 			
 			#menu a {
 				float: left;
@@ -29,7 +87,7 @@
 			
 			.section {
 				text-align: center;
-				font: 14px "Microsoft Yahei";
+				
 				color: #fff;
 				/*	padding-top: 4vh;*/
 			}
@@ -79,7 +137,7 @@
 				background-color: darkkhaki;
 				margin-left: 3.5vw;
 				margin-top: 3vw;
-				padding-top: 3vw;
+				padding-top: 1vw;
 				border-radius: 20px;
 				background: linear-gradient(-135deg, transparent 2.4vw, #58a 0)right;
 				filter: drop-shadow(0px 0px 15px #bbb);
@@ -109,16 +167,15 @@
 			/*	align-items: auto;*/
 				background-color: darkorange;
 				margin: 4vh 1vw;
-				font-size: 1.8vw;
+				
 				
 			}
 			
 			.tag-panel div {
-				width: 13vw;
-				height: 2vw;
+			
 				background-color: gold;
 				text-align:left;
-				line-height: 2vw;
+				
 			}
 			
 			#avatar {
@@ -130,7 +187,7 @@
 			h1 {
 				text-shadow: 1px 2px #22c3aa, 2px 4px #aee2d9;
 				text-align: center;
-				font-size: 3em;
+				
 				font-family: Lato, "Microsoft YaHei", sans-serif;
 			}
 			
@@ -147,7 +204,7 @@
 			}
 			.mcenter{
 				padding-top: 2vh;
-				font-size: 16px;
+			
 				font-family: charcoal;
 			}
 			a {
