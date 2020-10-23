@@ -11,7 +11,7 @@
 			#menu li {
 				float: left;
 				margin: 0 10px 0 0;
-				font-size: 14px;
+				font-size: 1vw;
 			}
 			
 			#menu a {
@@ -109,7 +109,7 @@
 			/*	align-items: auto;*/
 				background-color: darkorange;
 				margin: 4vh 1vw;
-				font-size: 1.2em;
+				font-size: 1.8vw;
 				
 			}
 			

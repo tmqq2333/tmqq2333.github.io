@@ -127,6 +127,10 @@
 					-webkit-clip-Path: ellipse(100px 100px at 0% 50%);
 					clip-Path: ellipse(100px 100px at 0% 50%);
 				}
+				#myCanvas{
+					width: 100vw;
+					height: 100vh;
+					}
 		</style>
 	</head>
 
@@ -156,8 +160,13 @@ C:\Users\tmqq2>简历 </div><span id="lico"></span></div>
 
 					}
 				});
+				
+				setTimeout(function() {
+						toText()
+					},3000)
 			}
 
+            
 			function toText() {
 				$(".box").stop(true, true).animate({
 					"top:": "0vh",
