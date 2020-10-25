@@ -32,6 +32,10 @@
 				text-align:left;
 				line-height: 2vw;
 			}
+			#play{
+				line-height: 4vh;
+				font-size: 0.8em;
+			}
 	}
 	@media only screen and (max-width:900px ) {
 					.tag-panel {
@@ -49,8 +53,8 @@
 			}
 			#menu li {
 				float: left;
-				width: 8vh;
-				margin: 0 1px 0 0;
+				width: 5vh;
+				margin: 0 0 0 0;
 				font-size: 1vh;
 			}
 				.section {
@@ -66,13 +70,41 @@
 				.mcenter{
 				font-size: 2.6vh;
 			}
+			#play{
+				font-size: 0.1vw;
+				line-height: 2vh;
+			}
+			
 	}
-
+	#play {
+				position: absolute;
+				right: 20px;
+				top: 20px;
+				border-radius: 5px;
+				z-index: 100;
+				width: 8vw;
+				height: 6vh;
+				color: #ffaa00;
+				font-family: Arial, Helvetica, sans-serif;
+				font-weight: bold;
+				text-align: center;
+				
+				background: linear-gradient(-45deg, transparent 6vh, #FFFFFF 0)right;
+				border: 1vh solid rgba(255, 244, 12, 0.5);
+			}
+			
+			#play:hover {
+				width: 8vw;
+				height: 6vh;
+				background: linear-gradient(-45deg, transparent 5vh, #ffaa7f 0)right;
+				border: 1vh solid rgba(85, 170, 127, 0.5);
+				font-size: 0;
+			}
 	#menu {
 				margin: 0;
 				padding: 0;
 				position: fixed;
-				left: 10px;
+				left: 3px;
 				top: 10px;
 				list-style-type: none;
 				z-index: 70;
