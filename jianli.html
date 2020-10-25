@@ -544,17 +544,21 @@
 				$('#play').click(function() {
 					if(isplay == false) {
 						isplay = true;
-					$('#play').text("关闭")
+					$('#play').text("关闭播放")
+					$('#play').css({	"background": "linear-gradient(-45deg, transparent 5vh, #ffaa7f 0)right",
+				"border": "1vh solid rgba(85, 170, 127, 0.5)","color":"#fff"})
 					 timeer = setInterval(function() {
 						$.fn.fullpage.moveSectionDown();
 					}, 3000);
 					} else {
 						isplay = false;
 					$('#play').text("开启播放")
+					$('#play').css({	"background": "linear-gradient(-45deg, transparent 6vh, #FFFFFF 0)right",
+				"border": "1vh solid rgba(255, 244, 12, 0.5)","color":"#ffaa00"})
 					clearTimeout(timeer);
 					timeer=null;
 					}
-					
+			
 				})
 			});
 		</script>

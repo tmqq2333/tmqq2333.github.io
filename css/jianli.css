@@ -71,7 +71,7 @@
 				font-size: 2.6vh;
 			}
 			#play{
-				font-size: 0.8vw;
+				font-size: 2vw;
 				line-height: 2vh;
 			}
 			
@@ -93,13 +93,7 @@
 				border: 1vh solid rgba(255, 244, 12, 0.5);
 			}
 			
-			#play:hover {
-				width: 8vw;
-				height: 6vh;
-				background: linear-gradient(-45deg, transparent 5vh, #ffaa7f 0)right;
-				border: 1vh solid rgba(85, 170, 127, 0.5);
-				font-size: 0;
-			}
+			
 	#menu {
 				margin: 0;
 				padding: 0;
