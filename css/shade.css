@@ -1,4 +1,4 @@
-  .popBox {
+ .popBox {
             display: none;
         }
 
@@ -13,7 +13,9 @@
             top: 0;
             bottom: 0;
         }
-
+        #project{
+        	position:relative ;
+        }
         /*设置弹窗内容*/
         .popBox .minbox {
             background-color: rgba(250, 188, 199, 0.76);
@@ -52,7 +54,7 @@
             content: "";
             cursor: default;
             background-color: rgba(173, 173, 173, 0.66);
-            position: relative;
+            position: absolute;
             left: 0;
             right: 0;
             top: 0;

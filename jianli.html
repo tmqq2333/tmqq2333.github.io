@@ -2,22 +2,302 @@
 <html>
 
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
 		<title>简历</title>
 		<link rel="stylesheet" type="text/css" href="css/shade.css" />
-        <link rel="stylesheet" type="text/css" href="css/jianli.css"/>
+		<link rel="stylesheet" type="text/css" href="css/jianli.css" />
 		<style type="text/css">
-				@import url("css/cat.css");
+			@import url("css/cat.css");
 			body {
+				margin: 0 0;
 				cursor: url("https://coderblue.cn/images/fei.png"), default !important;
 			}
 			
-		
+			html {
+				overflow-x: hidden;
+				overflow-y: auto;
+			}
+			/*铺满屏问题*/
 			
+			img {
+				width: 4vw;
+				height: 4vw;
+			}
+			
+			#loading {
+				position: relative;
+				/*fixed的元素是相对整个页面固定位置的*/
+				z-index: 400;
+				width: 100vw;
+				height: 100vh;
+				overflow: hidden;
+				background: #1f1f1f;
+				display: grid;
+				place-items: center;
+				box-sizing: border-box;
+			}
+			
+			#loading span {
+				position: absolute;
+				top: 70vh;
+				font-family: 'Lato';
+				font-size: 2vw;
+				letter-spacing: 1vw;
+				color: #fff;
+				left: 44.8vw;
+			}
+			/**, *:before, *::after { box-sizing: border-box; }*/
+			/* Atom */
+			
+			.atom {
+				--atom-size: 180px;
+				--atom-color-hex: #00d8ff;
+				--atom-color-rgb: 0, 216, 255;
+				--nucleus-size: calc(var(--atom-size) / 5);
+				--electron-color-hex: #99f8ff;
+				--electron-size: calc(var(--atom-size) / 25);
+				--electron-orbit-size: calc(var(--atom-size) / 2.5);
+				--electron-speed: 1.2s;
+				--electron-speed-alpha: 1s;
+				--electron-speed-omega: .8s;
+				position: relative;
+				width: var(--atom-size);
+				height: var(--atom-size);
+				animation: 8s atom infinite cubic-bezier(1, .25, 0, .75);
+			}
+			
+			@keyframes atom {
+				0% {
+					transform: rotate(0deg) scale(1);
+				}
+				12.5% {
+					transform: rotate(-45deg) scale(.9);
+				}
+				25% {
+					transform: rotate(-90deg) scale(1);
+				}
+				37.5% {
+					transform: rotate(-135deg) scale(.9);
+				}
+				50% {
+					transform: rotate(-180deg) scale(1);
+				}
+				62.5% {
+					transform: rotate(-225deg) scale(.9);
+				}
+				75% {
+					transform: rotate(-270deg) scale(1);
+				}
+				87.5% {
+					transform: rotate(-315deg) scale(.9);
+				}
+				100% {
+					transform: rotate(-360deg) scale(1);
+				}
+			}
+			/* Nucleus */
+			
+			.atom::before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: var(--nucleus-size);
+				height: var(--nucleus-size);
+				margin-top: calc(var(--nucleus-size) / -2);
+				margin-left: calc(var(--nucleus-size) / -2);
+				background: var(--electron-color-hex);
+				/* var(--atom-color-hex); */
+				border-radius: 100%;
+				box-shadow: 0 0 3px 0 var(--atom-color-hex);
+				animation: 2s nucleus infinite cubic-bezier(.65, 0, .35, 1);
+			}
+			
+			@keyframes nucleus {
+				0% {
+					transform: scale(1);
+				}
+				25% {
+					transform: scale(.9);
+				}
+				50% {
+					transform: scale(1);
+				}
+				75% {
+					transform: scale(.85);
+				}
+				100% {
+					transform: scale(1);
+				}
+			}
+			/* Electron Orbit */
+			
+			.atom>[class^="electron"] {
+				border-top: solid rgba(var(--atom-color-rgb), .5) 1px;
+				border-right: solid rgba(var(--atom-color-rgb), .35) 2px;
+				border-bottom: solid rgba(var(--atom-color-rgb), .2) 4px;
+				border-left: solid rgba(var(--atom-color-rgb), 0) 2px;
+				border-radius: 100%;
+				width: 100%;
+				height: var(--electron-orbit-size);
+				position: absolute;
+				top: 50%;
+				margin-top: calc(var(--electron-orbit-size) / -2);
+				animation: var(--electron-speed) electron-orbit infinite linear;
+			}
+			
+			.atom>.electron-alpha {
+				transform: rotate(60deg);
+				animation: var(--electron-speed-alpha) electron-orbit infinite linear;
+			}
+			
+			.atom>.electron-omega {
+				transform: rotate(-60deg);
+				animation: var(--electron-speed-omega) electron-orbit infinite linear;
+			}
+			
+			@keyframes electron-orbit {
+				0% {
+					border-top: solid rgba(var(--atom-color-rgb), .5) 1px;
+					border-right: solid rgba(var(--atom-color-rgb), .35) 2px;
+					border-bottom: solid rgba(var(--atom-color-rgb), .2) 4px;
+					border-left: solid rgba(var(--atom-color-rgb), 0) 2px;
+				}
+				25% {
+					border-top: solid rgba(var(--atom-color-rgb), .35) 1px;
+					border-right: solid rgba(var(--atom-color-rgb), .2) 2px;
+					border-bottom: solid rgba(var(--atom-color-rgb), 0) 4px;
+					border-left: solid rgba(var(--atom-color-rgb), .5) 2px;
+				}
+				50% {
+					border-top: solid rgba(var(--atom-color-rgb), .2) 1px;
+					border-right: solid rgba(var(--atom-color-rgb), 0) 2px;
+					border-bottom: solid rgba(var(--atom-color-rgb), .5) 4px;
+					border-left: solid rgba(var(--atom-color-rgb), .35) 2px;
+				}
+				75% {
+					border-top: solid rgba(var(--atom-color-rgb), 0) 1px;
+					border-right: solid rgba(var(--atom-color-rgb), .5) 2px;
+					border-bottom: solid rgba(var(--atom-color-rgb), .35) 4px;
+					border-left: solid rgba(var(--atom-color-rgb), .2) 2px;
+				}
+				100% {
+					border-top: solid rgba(var(--atom-color-rgb), .5) 1px;
+					border-right: solid rgba(var(--atom-color-rgb), .35) 2px;
+					border-bottom: solid rgba(var(--atom-color-rgb), .2) 4px;
+					border-left: solid rgba(var(--atom-color-rgb), 0) 2px;
+				}
+			}
+			/* Electron Unit */
+			
+			.atom [class^="electron"]::after {
+				content: '';
+				display: block;
+				width: var(--electron-size);
+				height: var(--electron-size);
+				background: var(--electron-color-hex);
+				border-radius: 50%;
+				margin-top: calc(var(--electron-size) / -2);
+				position: absolute;
+				top: 50%;
+				left: calc(var(--electron-size) / -1);
+				transform: scale(1);
+				animation: calc(var(--electron-speed) * 2) electron infinite ease-in-out;
+			}
+			
+			.atom .electron-alpha::after {
+				animation: calc(var(--electron-speed-alpha) * 2) electron infinite ease-in-out;
+			}
+			
+			.atom .electron-omega::after {
+				animation: calc(var(--electron-speed-omega) * 2) electron infinite ease-in-out;
+			}
+			
+			@keyframes electron {
+				0% {
+					left: calc(var(--electron-size) / -1);
+					transform: scale(1);
+				}
+				12.5% {
+					top: 100%;
+					transform: scale(1.5);
+				}
+				25% {
+					left: 100%;
+					transform: scale(1);
+				}
+				37.5% {
+					top: 0%;
+					transform: scale(.25);
+				}
+				50% {
+					left: calc(var(--electron-size) / -1);
+					transform: scale(1);
+				}
+				62.5% {
+					top: 100%;
+					transform: scale(1.5);
+				}
+				75% {
+					left: 100%;
+					transform: scale(1);
+				}
+				87.5% {
+					top: 0%;
+					transform: scale(.25);
+				}
+				100% {
+					left: calc(var(--electron-size) / -1);
+					transform: scale(1);
+				}
+			}
+			
+			.minbox img {
+				width: 60%;
+				height: 80%;
+			}
+			
+			#play {
+				position: absolute;
+				right: 20px;
+				top: 20px;
+				border-radius: 5px;
+				z-index: 100;
+				font-size: 0.8em;
+				width: 8vw;
+				height: 6vh;
+				color: #ffaa00;
+				font-family: Arial, Helvetica, sans-serif;
+				font-weight: bold;
+				font-size: 0.8em;
+				text-align: center;
+				line-height: 4vh;
+				background: linear-gradient(-45deg, transparent 6vh, #FFFFFF 0)right;
+				border: 1vh solid rgba(255, 244, 12, 0.5);
+			}
+			
+			#play:hover {
+				width: 8vw;
+				height: 6vh;
+				background: linear-gradient(-45deg, transparent 5vh, #ffaa7f 0)right;
+				border: 1vh solid rgba(85, 170, 127, 0.5);
+				font-size: 0;
+			}
 		</style>
 	</head>
 
 	<body style=" cursor:url(img/signarrow.png) !important;">
+		<div id="loading">
+			<div class="atom">
+				<div class="electron"></div>
+				<div class="electron-alpha"></div>
+				<div class="electron-omega"></div>
+			</div>
+			<span>
+				loading
+			</span>
+		</div>
 		<ul id="menu">
 			<li data-menuanchor="page1" class="active">
 				<a href="#page1">ABOUT首页</a>
@@ -38,7 +318,9 @@
 				<a href="#page6">MORE更多</a>
 			</li>
 		</ul>
-
+		<span id="play">
+	          自动播放
+          </span>
 		<div id="dowebok">
 			<div class="section center" id="home">
 				<div class="boxcenter">
@@ -71,7 +353,7 @@
 					<div class="row">
 						<div class="col-2 center">
 
-							<a href="#" onclick="javascript: $('#example2').css({'display':'block'});">
+							<a href="#example1">
 								<div class="col-4">
 									<h2>快易乐点餐系统</h2>
 									<p>基于vue全家桶的点餐系统</p>
@@ -82,7 +364,7 @@
 						<div class="clearboth"></div>
 						<div class="col-2 center">
 
-							<a href="#example3">
+							<a href="#example2">
 								<div class="col-4">
 									<h2>香满楼微信小程序开发</h2>
 									<p>基于Python，mysql的微信点餐小程序</p>
@@ -92,18 +374,20 @@
 						<div class="clearboth"></div>
 
 						<div class="col-2 center">
-
-							<div class="col-4">
-								<h2>朗润建材进销存系统</h2>
-								<p>Java，eclipse实现的进销存系统，角色管理，权限分配</p>
-							</div>
+							<a href="#example3">
+								<div class="col-4">
+									<h2>朗润建材进销存系统</h2>
+									<p>Java，eclipse实现的进销存系统，角色管理，权限分配</p>
+								</div>
+							</a>
 						</div>
 						<div class="col-2 center">
-
-							<div class="col-4">
-								<h2>聚会玩APP</h2>
-								<p> Hybird 混合开发，MUI框架的小游戏app</p>
-							</div>
+							<a href="#example4">
+								<div class="col-4">
+									<h2>聚会玩APP</h2>
+									<p> Hybird 混合开发，MUI框架的小游戏app</p>
+								</div>
+							</a>
 						</div>
 						<div class="clearboth"></div>
 					</div>
@@ -112,16 +396,34 @@
 					</p>
 				</div>
 
+				<article class="popBox" id="example1">
+					<div class="minbox">
+						<a href="#" class="close"></a>
+						<p>项目简述:一款点餐系统，项目大致流程为需求分析、接口设计、确定技术组件、网站结构分析、页面开发和最后的接口连调。
+							<br/>1、 确定技术应用 vue+element-ui 组件库、webpack，使用 vue-cli 脚手架。
+							<br/>2、通过模块化开发思想，确定网站头部和底部为默认模板，中间通过 vue-router多级路由进行切换 ，首页实现吸顶菜单，使用swiper组件轮播，better-scroll组件实现列表滑动
+							<br/>3、针对大量数据请求，使用 axios请求数据，并配置反向代理实现跨域。
+							<br/>4、对多个组件之间的通信问题，利用 vuex.state 实现根组件下所有子组件的数据访问。
+						</p>
+					</div>
+				</article>
 				<article class="popBox" id="example2">
 					<div class="minbox">
 						<a href="#" class="close"></a>
-						<p>A case is a typical multi-meaning event statement that people experience in production and life. It is a deliberate interception of the stories people experience. Cases generally include three major elements. Cases are of great significance to people's learning, research, and life reference. Case-based teaching is an effective carrier to convey targeted educational significance to people through cases.</p>
+						<p>用户通过扫描二维码，进入到微信小程序界面，然后可以选择本店的所有菜品，加入购物车并下单。 使用了小程序的常用开发技术，函数节流处理输入框搜索等高频操作、频繁使用组件间通信、组件页面间通信、页面间传值、全局数据的共享与修改。 商家后台管理系统：商家对订单和菜品管理。调用接口，上传头像，传输采用图片传输采用64位编码制。 服务端：使用 Python开发，数据库采用 mysql，ajax跨域，实现数据同步传输。具备用户身份验证、跨域请求配置、验证码校验、图片上传功能等等。</p>
 					</div>
 				</article>
 				<article class="popBox" id="example3">
 					<div class="minbox">
 						<a href="#" class="close"></a>
-						<p>A case is a typical multi-meaning event statement that people experience in production and life. It is a deliberate interception of the stories people experience. Cases generally include three major elements. Cases are of great significance to people's learning, research, and life reference. Case-based teaching is an effective carrier to convey targeted educational significance to people through cases.</p>
+						<p>后端使用 JSP+Servlet 技术，java语言，使用的 Mysql 数据库 具有基于角色的权限控制模块。 商品在添加时自动生成二维码，封装日志类，用户对系统的操作通过日志管理来记录 入库、出库和库存查询模块开发。 报表模块开发，使用到了Echarts报表。 实现防sql注入功能。 登录状态效验
+						</p>
+					</div>
+				</article>
+				<article class="popBox" id="example4">
+					<div class="minbox">
+						<a href="#" class="close"></a>
+						<p></p><img src="img/app.jpg" />
 					</div>
 				</article>
 			</div>
@@ -129,7 +431,7 @@
 				<div class="boxcenter">
 					<h1>擅长技术</h1>
 					<div class="tag-panel" title="熟练掌握 HTML、CSS、 JavaScript">
-						<div class="tag expert"  >CSS</div>
+						<div class="tag expert">CSS</div>
 						<div class="tag expert">JavaScript</div>
 						<div class="tag familiar">HTML</div>
 					</div>
@@ -219,7 +521,7 @@
 						<a href="mailto:tmqq2333@163.com" target="_blank">tmqq2333@163.com</a>
 					</p>
 
-					<h2><a href="Web Front-End Wenli Zhang.pdf" target="_blank" class="highlight">下载简历</a></h2>
+					<h2><a href="img/前端开发-王耀雪-17623828231.pdf" target="_blank" class="highlight">下载简历</a></h2>
 
 				</div>
 			</div>
@@ -227,6 +529,12 @@
 		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery.fullPage.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			$(document).ready(function() {
+				$(window).load(function() {
+					$('#loading').hide()
+				})
+			})
+
 			function copyUrl() {
 				let val = document.getElementById("weixin").innerText;
 				document.addEventListener('copy', save); // 监听浏览器copy事件
@@ -246,19 +554,32 @@
 					window.location.href = locatUrl;
 				}
 			}
-			
-			
+
 			$(function() {
 				$('#dowebok').fullpage({
 					sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90', '#22C3AA', '#F86D70'],
 					anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6'],
 					continuousVertical: true,
-					menu: '#menu'
+					menu: '#menu',
+					verticalCentered: true,
 				});
-
-				//				setInterval(function(){
-				//      			$.fn.fullpage.moveSectionDown();
-				//  			}, 3000);
+				let timeer;
+				let isplay = false;
+				$('#play').click(function() {
+					if(isplay == false) {
+						isplay = true;
+					$('#play').text("关闭")
+					 timeer = setInterval(function() {
+						$.fn.fullpage.moveSectionDown();
+					}, 3000);
+					} else {
+						isplay = false;
+					$('#play').text("开启播放")
+					clearTimeout(timeer);
+					timeer=null;
+					}
+					
+				})
 			});
 		</script>
 
