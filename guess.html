@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				background-color: silver;
+				background-image: url(img/998.jpg);
+				background-repeat: no-repeat;
+			}
+			
+			#bb {
+				color: blanchedalmond;
+				padding-top: 220px;
+				padding-left: 550px;
+			}
+			
+			.a2 {
+				text-align: left;
+			}
+			
+			.a3 {
+				width: 270px;
+				height: 28px;
+				text-align: left;
+				font-size: 18px;
+			}
+			
+			#a4 {
+				width: 54px;
+				height: 34px;
+				background-color: black;
+				color: white;
+				margin-left: 12px;
+				font-size: 20px;
+			}
+			
+			.ran {
+				margin: 100px auto;
+				padding-left: 40%;
+			}
+			
+			ul {
+				list-style: none;
+			}
+			
+			ul img {
+				width: 20px;
+				height: 20px;
+				float: left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="b">
+			<div id="bb">
+
+				<table border="0" cellspacing="0" cellpadding="0">
+					<h2 class="a2">梅德堡之时间回廊游戏</h2>
+					<h5 class="a2">1-100间</h5>
+					<input type="text" id="numtext" class="a3">
+					<input type="button" class="but" id="a4" value="确定">
+					<ul>
+						<li><img src="img/x1.png" alt=""></li>
+						<li><img src="img/x1.png" alt=""></li>
+						<li><img src="img/x1.png" alt=""></li>
+						<li><img src="img/x1.png" alt=""></li>
+						<li><img src="img/x1.png" alt=""></li>
+						<li><img src="img/x1.png" alt=""></li>
+					</ul>
+
+			</div>
+		</div>
+
+		<script>
+			//获取随机数
+			function GetRandomNum(Min, Max) {
+				var Range = Max - Min;
+				var Rand = Math.random();
+				return(Min + Math.round(Rand * Range));
+			}
+			var inp = document.getElementById("numtext");
+			var img = document.querySelectorAll('img');
+			let num = GetRandomNum(1, 100);
+			let i = 0;
+			console.log(num);
+			document.getElementById("a4").onclick = function() {
+				i++
+				if(i < 6) {
+					let guess = parseInt(inp.value)
+					0 < guess < 100 ? guess : alert('请输入零到一百正整数')
+
+					if(guess === num) {
+						if(confirm('恭喜你猜对了，是否继续游戏')) {
+							window.location.reload();
+						}
+					} else {
+						guess > num ? alert("大了") : alert('小了')
+						img[6 - i].src = 'img/x2.png'
+					}
+				} else {
+					if(confirm('次数已用尽，是否重新开始')) {
+						window.location.reload();
+					}
+				}
+			}
+
+			//			import random
+			//
+			//			list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+			//			number = list[random.randint(0, len(list))]
+			//			print(number)
+			//			guess = -1
+			//			y = 1
+			//			print("数字猜谜游戏!")
+			//			while guess != number:
+			//				guess = int(input("请输入你猜的数字："))
+			//			y = y + 1
+			//			if guess == number:
+			//				print("恭喜，你猜对了！")
+			//			elif guess < number:
+			//				print("猜的数字小了...")
+			//			elif guess > number:
+			//				print("猜的数字大了...")
+			//			print("你猜了", y)
+		</script>
+	</body>
+
+</html>

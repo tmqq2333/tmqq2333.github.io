@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		                R&nbsp;<input name="r1e" value="255" class="rle" maxlength="3" onkeypress="getkey(event,0);">&nbsp;
+                        G&nbsp;<input name="r1e" value="180" class="rle" maxlength="3" onkeypress="getkey(event,0);">&nbsp;
+                        B&nbsp;<input name="r1e" value="0" class="rle" maxlength="3" onkeypress="getkey(event,0);">
+                        <input onclick="showRGB()" type="button" value="转换" name="button">
+                        <div id="a_mo2">　</div>
+                        <div id="color1" style="width: 50px;height: 30px;"></div><br />
+                        <input name="rgb2" value="#CC00FF" size="8" maxlength="20" onkeypress="getkey(event,1);">
+                        <input onclick="showRGB2()" type="button" value="转换" name="button">
+                         <div id="a_mo3">　</div>
+                         <div id="color2" style="width: 50px;height: 30px;"></div>
+		<script type="text/javascript">
+			function showRGB() {
+				hexcode = "#";
+				for(x = 0; x < 3; x++) {;
+					var n = document.getElementsByName("r1e")[x].value;
+					if(n == "") n = "0";
+					if(parseInt(n) != n) return alert("请输入数字！");
+					if(n > 255) return alert("数字在0-255之间！");
+					var c = "0123456789ABCDEF",
+						b = "",
+						a = n % 16;
+					b = c.substr(a, 1);
+					a = (n - a) / 16;
+					hexcode += c.substr(a, 1) + b
+				}
+//				document.getElementById("color1").bgColor = a_mo2.innerHTML = hexcode
+				document.getElementById("color1").style.backgroundColor= a_mo2.innerHTML = hexcode;
+			}
+
+			function showRGB2() {;
+				var a = document.getElementsByName("rgb2")[0].value;
+				if(a.substr(0, 1) == "#") a = a.substring(1);
+				if(a.length != 6) return alert("请输入正确的十六进制颜色码！")
+//				document.getElementById("color2").bgColor = "#" + a;
+                 document.getElementById("color2").style.backgroundColor="#" + a;
+				a = a.toLowerCase()
+				b = new Array();
+				for(x = 0; x < 3; x++) {
+					b[0] = a.substr(x * 2, 2)
+					b[3] = "0123456789abcdef";
+					b[1] = b[0].substr(0, 1)
+					b[2] = b[0].substr(1, 1)
+					b[20 + x] = b[3].indexOf(b[1]) * 16 + b[3].indexOf(b[2])
+				}
+				a_mo3.innerHTML = b[20] + "," + b[21] + "," + b[22];
+			}
+ 
+			function getkey(e, n) {
+				var keynum;
+				if(window.event) keynum = e.keyCode;
+				else if(e.which) keynum = e.which;
+				if(keynum == 13) {
+					if(n == 0) showRGB();
+					else showRGB2();
+				}
+			}
+		</script>
+	</body>
+
+</html>

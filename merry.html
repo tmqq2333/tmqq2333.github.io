@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<title>圣诞节快乐</title>
+<style type="text/css">
+	#loading{
+		width: 100vw;
+		height: 100vh;
+		background-color: whitesmoke;
+	}
+	#loading span{
+		   width: 100px;
+			height: 100px;
+				position: absolute;
+				top: 40vh;
+				left: 44.8vw;
+			background-image: url(img/book.gif);
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 60% 60%;
+	}
+	
+	
+			#element {
+				width: 60vw;
+				height: 60vh;
+				margin: 0 auto;
+				display: inline;
+				font-size: 60px;
+			}
+		
+				.typed-fade-out {
+				opacity: 0;
+				transition: opacity .25s;
+				-webkit-animation: 0;
+				animation: 0;
+			}
+			.typed-cursor {
+				opacity: 1;
+				animation: typedjsBlink 0.7s infinite;
+				-webkit-animation: typedjsBlink 0.7s infinite;
+				animation: typedjsBlink 0.7s infinite;
+			}
+			
+			@keyframes typedjsBlink {
+				50% {
+					opacity: 0.0;
+				}
+			}
+			
+			@-webkit-keyframes typedjsBlink {
+				0% {
+					opacity: 1;
+				}
+				50% {
+					opacity: 0.0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			
+</style>
+<link rel="stylesheet" href="css/merry.css">
+
+</head>
+<body>
+<div id="loading">
+	<span></span>
+</div>
+<section class="countdownSection">
+  <div class="decorations">
+    <div class="decoration" data-pos="bottom left"></div>
+    <div class="decoration" data-pos="top right"></div>
+    <div class="snow"></div>
+    <div class="santaWrapper">
+      <div class="santa">
+        <div class="hat">
+          <div></div>
+          <div></div>
+        </div>
+        <div class="face">
+          <div class="eyeBrows left"></div>
+          <div class="eyeBrows right"></div>
+          <div class="eye left"></div>
+          <div class="eye right"></div>
+          <div class="nose"></div>
+          <div class="cheek left"></div>
+          <div class="cheek right"></div>
+          <div class="beard">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="body">
+          <div class="sweater"></div>
+          <div class="hand left">
+            <div class="inner"></div>
+          </div>
+          <div class="hand right"></div>
+        </div>
+      </div>
+      <div class="rope"></div>
+      <div class="rope back"></div>
+      <div class="sled"></div>
+      <div class="reindeer">
+        <div class="face">
+          <div class="ear"></div>
+          <div class="horn right"></div>
+          <div class="horn left"></div>
+        </div>
+        <div class="body">
+          <div class="foot front">
+            <div class="inner">
+              <div class="extension"></div>
+            </div>
+          </div>
+          <div class="foot back">
+            <div class="inner">
+              <div class="extension"></div>
+            </div>
+          </div>
+          <div class="tail"></div>
+        </div>
+      </div>
+      <div class="reindeer second">
+        <div class="rope"></div>
+        <div class="face">
+          <div class="ear"></div>
+          <div class="horn right"></div>
+          <div class="horn left"></div>
+        </div>
+        <div class="body">
+          <div class="foot front">
+            <div class="inner">
+              <div class="extension"></div>
+            </div>
+          </div>
+          <div class="foot back">
+            <div class="inner">
+              <div class="extension"></div>
+            </div>
+          </div>
+          <div class="tail"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="counterWrapper">
+      <p align="center"><img src="img/sdjkl.png" height="140" width="702" /></p>
+    </div>
+     <div id="element">
+     	
+     </div>
+      <audio preload="auto" loop="loop" autoplay   class="audio" id="vb">
+    <source src="img/merryy.m4a" />
+    <!--<source src="audio.ogg" />
+    <source src="audio.wav" />-->
+  </audio>
+  </div>
+ 
+</section>
+
+<script src='js/jquery-1.11.0.js'></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/typed.js/2.0.5/typed.js"></script>
+<script src="js/merry.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+				$(window).load(function() {
+				$("#loading").click(function() {	
+							$('#loading').hide();
+							$(".countdownSection").css({'display':'block'})
+					   })
+				
+				})
+				setTimeout(function() {
+				var options = {
+				// 闪烁光标必须得有：上面的css和下面字符串内添加 ^1000 ，只要是当输入到^1000就解析闪烁的时间，1000ms。
+				 strings: [ "苹果圆圆像你的脸，平安捧在手里，甜在心上。<br/>灯火闪烁如你的眼，温暖拥在怀里，美在心里","苹果圆圆像你的脸，平安捧在手里，甜在心上。<br/>灯火闪烁如你的眼，温暖拥在怀里，美在心里^1000","<i> 祝你平安快乐！未来可期。 </i> ^1000 <br/> 我最重要的你！^1000","Merry Christmas"],
+				  typeSpeed: 50, //打字速度
+					backSpeed: 70, //回退速度
+					loop: true,
+					loopCount: 1,
+					showCursor: true,
+					cursorChar: "*"
+			}
+			var typed = new Typed("#element", options);
+				}, 3000)
+			})
+	$(function(){
+	$("#loading").hover(function() {	
+        		var index = $(this).index();
+        		$('audio').get(index).load();
+        		$('audio').get(index).play();
+
+        })
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/css1.css" id="mycss" />
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				width: 100%;
+				height: 100%;
+			}
+			
+			#b {
+				width: 602px;
+				height: 750px;
+				position: absolute;
+				left: 500px;
+				/* calc(50% -  300px);*/
+				top: 0px;
+				/* calc(50px - 400px);*/
+				background-color: navajowhite;
+			}
+			
+			#a {
+				width: 600px;
+				height: 60px;
+				background-color: burlywood;
+				text-align: center;
+				font-size: 32px;
+				font-family: "仿宋";
+				font-weight: 900;
+				line-height: 60px;
+				color: #FFFFFF;
+				
+			}
+			.aa{
+				position: absolute;
+				left: 469px;
+				top:60px
+			}
+			.aa span{
+				background-color: #03A9F4;
+			}
+			/*动画*/
+			
+			#dd1 {
+				width: 80px;
+				height: 80px;
+				background-color: gold;
+				position: absolute;
+				left: 0;
+				top: 100px;
+			}
+			img{
+				width: 80px;
+				height: 80px;
+			}
+			
+			#dd2 {
+				width: 80px;
+				height: 80px;
+				background-color: gold;
+				position: absolute;
+				left: 1430px;
+				top: 200px;
+			}
+			
+			/*计算机*/
+			#head{
+				width:480px;
+				height: 100px;
+				border: solid 1px darkslategray;
+				margin: auto;
+				margin-top: 10px;
+				background-color: #FFFFFF;
+			}
+			#box1 {
+				width: 520px;
+				height: 670px;
+				border: solid 1px #2F4F4F;
+				background-color: seagreen;
+				margin: auto;
+				margin-top: 10px;
+				box-shadow: 3px 0px 10px 3px rgba(0,0,0,0.5);
+			}
+			#p1,#p3{
+				height: 40px;
+				line-height: 40px;
+				text-align: right;
+				padding-right: 5px;
+				font-size:20px ;
+			}
+			#p2{
+				height: 20px;
+				line-height: 20px;
+				text-align: right;
+				padding-right: 5px;
+				font-size:20px ;
+			}
+			ul{
+				list-style: none;
+				margin-top: 20px;
+				margin-left: 10px;
+			}
+			li{
+				width:100px ;
+				height:100px ;
+				background-color: darkorange;
+				float: left;
+				margin-left: 20px;
+				margin-bottom: 20px;
+				text-align: center;
+				line-height: 100px;
+				font-size:22px ;
+				color: #EEEEEE;
+				box-shadow: 3px 0px 12px 2px rgba(0,0,0,0.5);
+				-webkit-user-select: none;
+			}
+			li.cont{
+				background-color: gold;
+				font-size: 30px;
+				box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.5);
+			}
+			.copyright{
+				color: white;
+				clear: both;/*清理浮动影响*/
+				padding: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="dd1">
+             <img src="img/013.jpg"/>
+		</div>
+		<div id="dd2">
+            <img src="img/013.jpg"/>
+		</div>
+		
+		<div id="b">
+			<div id="a">
+
+			</div>
+			<div id="box1">
+				
+				<div id="head">
+					<p id="p1"></p>
+					<p id="p2"></p>
+					<p id="p3"></p>
+				</div>
+                <ul class="uu">
+                	<li>CE</li>
+                	<li>0</li>
+                	<li>=</li>
+                	<li>+</li>
+                	<li>1</li>
+                	<li>2</li>
+                	<li>3</li>
+                	<li>-</li>
+                	<li>4</li>
+                	<li>5</li>
+                	<li>6</li>
+                	<li>*</li>
+                	<li>7</li>
+                	<li>8</li>
+                	<li>9</li>
+                	<li>/</li>
+                </ul>
+
+              <p class="copyright">制作：Michelle 微信号:lbdqhycp2333</p>
+			</div>
+			
+		</div>
+			<div class="aa">
+				<span class="lu">一号</span>
+				<span class="red">二号</span>
+				<span class="y">三号</span>
+			</div>
+		
+		<script type="text/javascript">
+			//倒计时：
+			function aa() {
+				var t = new Date("2019-10-2 6:30:00");
+				var current = new Date();
+				var che = t.getTime() - current.getTime();
+				if(che > 0) {
+					var day = che / 1000 / 60 / 60 / 24;
+					var h = che / 1000 / 60 / 60 % 24;
+					var m = che / 1000 / 60 % 60;
+					var s = che / 1000 % 60;
+					var day = parseInt(day);
+					var h = parseInt(h);
+					var m = parseInt(m);
+					var s = parseInt(s);
+					var msg = "距离10月2号还有" + day + "天" + "     " + h + ":" + m + ":" + s;
+					document.getElementById("a").innerHTML = msg;
+				} else {
+					document.getElementById("a").innerHTML = "倒计时已结束";
+				}
+			}
+			aa();
+			setInterval(function() {
+				aa();
+			}, 1000)
+
+			//网页换肤：
+			var lists = document.querySelectorAll(".aa span")
+			for(var i = 0; i < lists.length; i++) {
+				lists[i].onclick = function() {
+					var v = this.className; /*必须用class，id的话，无法改属性*/
+
+					switch(v) {
+						case "lu":
+							document.getElementById("mycss").href = "css/css1.css";
+								document.getElementById("box1").style.backgroundColor= "seagreen";
+							break;
+						case "red":
+							document.getElementById("mycss").href = "css/css2.css";
+							document.getElementById("box1").style.backgroundColor = "#5F9EA0";
+							break;
+						case "y":
+							document.getElementById("mycss").href = "css/css3.css";
+							document.getElementById("box1").style.backgroundColor = "salmon";
+							break;
+							console.log(v);
+						
+						
+					}
+				}
+			}
+			
+			//动画：
+			var i = 0;
+			var flag = true;
+			setInterval(function() {
+
+				if(i > 400) {
+					flag = false;
+				}
+
+				if(i < 1) {
+					flag = true;
+				}
+
+				if(flag) {
+					i++
+				} else {
+					i--
+				}
+				document.getElementById("dd1").style.left = i + "px";
+
+			}, 5)
+			var ii = 1100;
+			setInterval(function() {
+
+				if(ii > 1430) {
+					flag = false;
+				}
+
+				if(ii < 1100) {
+					flag = true;
+				}
+
+				if(flag) {
+					ii++
+				} else {
+					ii--
+				}
+				document.getElementById("dd2").style.left = ii + "px";
+
+			}, 5)
+			
+			//计算器
+			var listsbox=document.querySelectorAll(".uu li")
+			{
+				for(var iii = 0; iii < listsbox.length; iii++)
+				{
+					listsbox[iii].onclick = function() 
+					{
+						var that=this;
+						that.className="cont";
+						setTimeout(function(){
+							that.className="";
+						},300)
+						
+						var ve=that.innerHTML;
+						switch(ve){
+							case "CE": ql();break;
+							case "0": setnum(ve);break;
+							case "1": setnum(ve);break;
+							case "2": setnum(ve);break;
+							case "3": setnum(ve);break;
+							case "4":  setnum(ve);break;
+							case "5": setnum(ve);break;
+							case "6": setnum(ve);break;
+							case "7": setnum(ve);break;
+							case "8" : setnum(ve);break;
+							case "9": setnum(ve);break;
+							case "+": yun(ve);break;
+							case "*": yun(ve);break;/*()内要写swich中的数，否则无法赋值，函数得不到值。报undefined错*/
+							case "/": yun(ve);break;
+							case "-": yun(ve);break;
+							case "=": js();break;
+							default: break;
+						}
+						console.log(ve)
+		            }
+			    }		
+				/*清零*/
+				function ql()
+				{
+					document.getElementById("p1").innerHTML="";
+					document.getElementById("p2").innerHTML="";
+					document.getElementById("p3").innerHTML="0";
+				}
+				/*点数操作*/
+				function setnum(venumber)
+				{
+					var v3=document.getElementById("p3").innerHTML;
+					if(v3=="0")	
+						{
+							document.getElementById("p3").innerHTML=venumber;
+						}
+						else
+						{
+						document.getElementById("p3").innerHTML+=venumber;
+						}
+				}
+				/*+操作*/
+				function yun(veflag)
+				{
+					var v3=document.getElementById("p3").innerHTML;
+					document.getElementById("p1").innerHTML=v3;
+					document.getElementById("p2").innerHTML=veflag;
+					document.getElementById("p3").innerHTML="";
+				}
+			
+			function js()
+				{
+					var v3=document.getElementById("p3").innerHTML;
+					var v2=document.getElementById("p2").innerHTML;
+					var v1=document.getElementById("p1").innerHTML;
+					v3=parseInt(v3);
+					v1=parseInt(v1);
+					
+					if(isNaN(v1)||isNaN(v3)){
+						return;
+					}
+					
+					var res;
+					switch(v2){
+						case "+": res= v1+v3;break;
+						case "-":  res=v1-v3;break;
+						case "*":  res=v1*v3;break;
+						case "/": res= v1/v3;break;
+						
+					}
+					if(res=="Infinity"){
+						res="除数不能为0.";
+					}
+					document.getElementById("p1").innerHTML="";
+					document.getElementById("p2").innerHTML="";
+					document.getElementById("p3").innerHTML=res;
+				}
+			
+			
+		}
+		</script>
+	</body>
+
+</html>

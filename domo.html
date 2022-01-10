@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>dome</title>
 		<style type="text/css">
 			body {
 				overflow: hidden;
@@ -75,6 +75,35 @@
 					transform: rotate(-3deg);
 				}
 			}
+			.box-a{
+				    border: 5px solid #f8f8f8;
+				    display: block;
+				    width: 200px;
+				    height: 250px;
+				background-color: darkgray;
+				display: flex;
+				align-items: flex-start;
+				justify-content: flex-start;
+			}
+			.box-a li{
+				margin-top: 12px;
+			}
+			.box-a a{
+				text-decoration: none;
+				font-size: 16px;
+				color: #C9E2B3;
+				color: khaki;
+            transition: 0.5s;
+            animation: play03 1s infinite;
+			}
+			@keyframes play03 {
+				from {
+					color: darkblue;
+				}
+				to {
+					color: yellow;
+				}
+			}
 		</style>
 	</head>
 
@@ -82,13 +111,27 @@
 		<div style="margin-top: 20px;" class="photo">
 
 			<figure class="wave">
-				<img src="img/1555141470155514.jpeg" alt="rajni" data="#p01"></img>
-				<figcaption>js</figcaption>
+				<!--<img src="img/1555141470155514.jpeg" alt="rajni" data="#p01"></img>-->
+				<div class="box-a">
+					<ul>
+						<li><a href="compensation.html">计算机+倒计时+换肤</a></li>
+						<li><a href="guess.html">数字猜谜</a></li>
+						<li><a href="speak.html">真言</a></li>
+						<li><a href="rain.html">代码雨</a></li>
+						<li><a href="color.html">颜色转化工具</a></li>
+					</ul>
+				</div>
+				<figcaption>小domo</figcaption>
 			</figure>
 
 			<figure class="wave">
-				<img src="img/181.jpg" alt="chuck" data="#p01"></img>
-				<figcaption>css</figcaption>
+				<div class="box-a">
+					<ul>
+						<li><a href="merry.html">圣诞快乐</a></li>
+						
+					</ul>
+				</div>
+				<figcaption>节日祝福</figcaption>
 			</figure>
 
 			<figure class="wave">

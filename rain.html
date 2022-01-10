@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Code</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+<canvas id="myCanvas"></canvas>
+<script>
+    const width = document.getElementById("myCanvas").width = screen.availWidth;
+    const height = document.getElementById("myCanvas").height = screen.availHeight;
+    //document.write("总宽度/高度: screen.width + "*" + screen.height");
+    //document.write("可用宽度/高度: screen.availWidth + "*" + screen.availHeight");
+   //document.write("颜色深度:screen.colorDepth ");
+   //document.write("颜色分辨率:screen.pixelDepth ");
+
+    
+    const ctx = document.getElementById("myCanvas").getContext("2d");
+    //getContext() 方法可返回一个对象，该对象提供了用于在画布上绘图的方法和属性。
+    const arr = Array(Math.ceil(width / 10)).fill(0);//页面宽度
+    //一字10字号，节省资源
+    //Math.round()  “四舍五入
+    //Math.ceil()  “向上取整”
+    //Math.floor()  “向下取整
+    //fill() 方法用于将一个固定值替换数组的元素。用0填充
+    const str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
+
+    function rain() {
+    	//这里的重点就是每次调用这个方法的时候都会重新绘制一张透明度为0.05的黑色画布来覆盖前图
+    	//所以就会形成人眼中的下雨效果
+        ctx.fillStyle = "rgba(0,0,0,0.05)";
+        /*fillStyle	设置或返回用于填充绘画的颜色、渐变或模式
+         strokeStyle	设置或返回用于笔触的颜色、渐变或模式
+		shadowColor	设置或返回用于阴影的颜色
+		shadowBlur	    设置或返回用于阴影的模糊级别
+		shadowOffsetX	设置或返回阴影距形状的水平距离
+		shadowOffsetY	设置或返回阴影距形状的垂直距离*/
+        
+        
+        
+        ctx.fillRect(0, 0, width, height);
+        //fillRect()	绘制“被填充”的矩形，矩形左上角x坐标，y坐标      屏幕等宽高的矩形
+        ctx.fillStyle = "#0f0";
+        //fillText()	在画布上绘制“被填充的”文本，（文本，x坐标（相对文本），y坐标（相对文本））
+        arr.forEach(function (value, index) {
+        	
+            ctx.fillText(str[Math.floor(Math.random() * str.length)], index * 10, value + 10);//一个字节10号*10，同y，不同x,x相距一字节
+            //Math.floor(Math.random() * str.length)随机选取文字 0---str.length   单字符闪烁
+           arr[index] = value >= height || value >  Math.random()*8888 ? 0 : value + 10;//手动改变数组    不同y  //随机数1-8888，错落显示
+//					value大于等于 height或者大于Math.random()*8888为0，一旦大于height或者随机数就为0，重新从顶开始         
+// forEach() 方法用于调用数组的每个元素，并将元素传递给回调函数。这里给大家提个醒，
+//        forEach是不会有返回值的，如果需要接收返回值，就调用.map方法，这里用map当然也可以，但是没必要，不符合规范。
+//					array.forEach(function(currentValue, index, arr), thisValue)
+//					function(currentValue, index, arr)   数组中每个元素需要调用的函数。
+//					currentValue         必需。当前元素
+//					index          可选。当前元素的索引值。
+//					arr            可选。当前元素所属的数组对象。
+//					thisValue               可选。传递给函数的值一般用 “this” 值。.map(thisValue)
+            console.log(value)
+        });
+    }
+
+ setInterval(rain, 30);//每0.03秒执行    重复覆盖
+</script>
+</body>
+</html>
